@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+  <title>Add new Hotel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<header>
+  <!-- Animated navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+      </div>
+    </div>
+  </nav>
+</header>
+
+<body>
+<div>
+  <div class="container text-center">
+    <h1>Картка товара </h1>
+    <h2>Форма оплати кнопка активації</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="width: fit-content;">
+
+  <form method="post" action="https://secure.wayforpay.com/pay" accept-charset="utf-8">
+      <input type="hidden" name="merchantAccount" th:value="${merchantAccount}">
+      <input type="hidden" name="merchantAuthType" th:value="${merchantAuthType}">
+      <input type="hidden" name="merchantDomainName" th:value="${merchantDomainName}">
+      <input type="hidden" name="orderReference" th:value="${orderReference}">
+      <input type="hidden" name="orderDate" th:value="${orderDate}">
+      <input type="hidden" name="amount" th:value="${amount}">
+      <input type="hidden" name="currency" th:value="${currency}">
+      <input type="hidden" name="orderTimeout" th:value="${orderTimeout}">
+      <input type="hidden" name="productName[]" th:value="${productName}">
+      <!--   type="hidden"    <input name="productName[]" th:value="${productName}">-->
+      <input type="hidden" name="productPrice[]" th:value="${productPrice}">
+      <!--   type="hidden"    <input name="productPrice[]" th:value="${productPrice}">-->
+      <!--   type="hidden"    <input name="productCount[]" th:value="${productCount}">-->
+      <input type="hidden" name="productCount[]" th:value="${productCount}">
+      <input type="hidden" name="clientFirstName" th:value="${clientFirstName}">
+      <input type="hidden" name="clientLastName" th:value="${clientLastName}">
+      <input type="hidden" name="clientAddress" th:value="${clientAddress}">
+      <input type="hidden" name="clientCity" th:value="${clientCity}">
+      <input type="hidden" name="clientEmail" th:value="${clientEmail}">
+      <input type="hidden" name="defaultPaymentSystem" th:value="${defaultPaymentSystem}">
+      <input type="hidden" name="serviceUrl" th:value="${serviceUrl}">
+      <input type="hidden" name="merchantSignature" th:value="${merchantSignature}">
+<!--    <input name="merchantAccount" th:value="${merchantAccount}">-->
+<!--    <input name="merchantAuthType" th:value="${merchantAuthType}">-->
+<!--    <input name="merchantDomainName" th:value="${merchantDomainName}">-->
+<!--    <input name="orderReference" th:value="${orderReference}">-->
+<!--    <input name="orderDate" th:value="${orderDate}">-->
+<!--    <input name="amount" th:value="${amount}">-->
+<!--    <input name="currency" th:value="${currency}">-->
+<!--    <input name="orderTimeout" th:value="${orderTimeout}">-->
+<!--    <input name="productName[]" th:value="${productName}">-->
+<!--&lt;!&ndash;      <input name="productName[]" th:value="${productName}">&ndash;&gt;-->
+<!--    <input name="productPrice[]" th:value="${productPrice}">-->
+<!--&lt;!&ndash;      <input name="productPrice[]" th:value="${productPrice}">&ndash;&gt;-->
+<!--&lt;!&ndash;      <input name="productCount[]" th:value="${productCount}">&ndash;&gt;-->
+<!--    <input name="productCount[]" th:value="${productCount}">-->
+<!--    <input name="clientFirstName" th:value="${clientFirstName}">-->
+<!--    <input name="clientLastName" th:value="${clientLastName}">-->
+<!--    <input name="clientAddress" th:value="${clientAddress}">-->
+<!--    <input name="clientCity" th:value="${clientCity}">-->
+<!--    <input name="clientEmail" th:value="${clientEmail}">-->
+<!--    <input name="defaultPaymentSystem" th:value="${defaultPaymentSystem}">-->
+<!--    <input name="merchantSignature" th:value="${merchantSignature}">-->
+    <input type="submit" value="Оплатити">
+  </form>
+
+  </div>
+</div>
+</body>
+</html>
